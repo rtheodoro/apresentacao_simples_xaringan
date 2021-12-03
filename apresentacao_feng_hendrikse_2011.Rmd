@@ -1,0 +1,129 @@
+---
+title: "\"Coordination and Governance: The case of Cooperatives versus IOFs"
+subtitle: "- Feng & Hendrikse (2011)''"
+author: "- Ricardo Theodoro (`r format(Sys.time(), '%Y')`)"
+institute: "Apresentação de artigo - OBSCOOP/USP"
+date: "`r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      countdown: 31000
+    includes: 
+      after_body: ["insert-logo.html", "timer.html"]
+---
+
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+
+# xaringan::inf_mr()
+# Essa função faz com que você veja as alterações na apresentação em tempo real
+# Só é preciso salvar o arquivo quando se adiciona um novo slide
+
+
+```
+
+class: center, middle
+
+# ''Perhaps the most important role of contracts is to coordinate the actions of independent decision makers.''
+
+
+### Bogetoft and Olesen 2002, p189
+
+---
+class: inverse
+
+# Estrutura de Governança
+
+Separação entre propriedade e gestão é atrativa por gerar _especialização_ das atividades
+
+Entretanto, a _especialização_ ainda traz problemas de **motivação** e **coordenação**
+
+
+**Problemas de Motivação** (mais estudado até então<sup>1</sup>)
+
+- Direcionado pelos problemas de incentivo e designação de autoridade para reduzir conflitos de interesses
+
+**Problemas de Coordenação** (pouco estudado até então<sup>2</sup>)
+
+- Acontece mesmo se as partes envolvidas tiverem interesses comuns, quando discutem qual ação focar
+
+.footnote[
+[1] Separados pela Teoria da Agência (Fama e Jensen, 1983) e Direitos de Propriedade (Grossman e Hart,
+1986)
+
+[2] Alonso, et al. (2008) e Dessein e Santos (2006)
+]
+
+---
+class: inverse
+
+
+# Coordenação
+
+- É o que garante que a produção será otimizada através de toda cadeia e que seja criado **valor pela ação conjunta**
+
+- A coordenação vertical envolve o alinhamento de atividades interdependentes de vários atores em uma cadeia produtiva
+
+- Problemas de coordenação surgem quando há externalidades positivas entre diferentes unidades organizacionais (Lazear & Gibbs, 2008)
+
+- É necessário corrigir sem comprometer a individualidade e independência das partes (Emelianoff, 1948)
+
+---
+class: inverse, middle
+
+# Coordenação nas Cooperativas
+
+- As características de propriedade de uma cooperativa fornecem potenciais _vantagens_ na coordenação, uma vez que a ordenação internaliza a externalidade vertical em uma cooperativa. **Quais?? Não está claro**
+
+- Se as interdependências mudarem de agrupadas para sequenciais para recíprocas, as transações serão governadas de uma forma mais hierárquica, a fim de economizar nos custos de coordenação. 
+
+A razão é que mais informações devem ser trocadas e mais atividades de vários participantes devem ser alinhadas ao longo da mudança. 
+
+
+---
+class: inverse, middle
+
+# Mecanismos de Coordenação e Estrutura de Governança
+
+- Este artigo examina mecanismos de coordenação entre fornecedores de matéria prima e o processo produtivo e conecta com uma estrutura de governança - de **Cooperativas** e **IOF**, movidos por externalidades e incerteza
+
+--
+
+**Cooperativas**
+ - Propriedade coletiva em que vários fazendeiros independentes fornecem recursos
+ - Fazendeiros delegam direitos para a cooperativa
+ - Cooperativa conclui o contrato com os membros entregando o que foi especificado
+
+--
+
+**IOF**
+ - Propriedade de investidores, fora da empresa
+ - Apenas relacionamento transacional com os fornecedores
+
+---
+class: inverse, middle
+
+# Mecanismos de Coordenação e Estrutura de Governança
+
+Cooperativas levam em conta externalidades verticais entre fazendeiros membros e a cooperativa, enquanto IOF não.
+
+Sobre o mercado da agricultura
+- Risco
+- Incerteza
+- Assimetria de Informação
+
+Produtores possuem mais informação sobre a produção, enquantro processores**** possuem mais informações sobre os preços do mercado
+
+---
+class: inverse, middle
+
+# Coordenação como jogo de multiplo equilíbrio (Milgrom & Roberts, 1992).
+
+-
+
+

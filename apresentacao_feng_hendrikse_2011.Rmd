@@ -39,6 +39,9 @@ class: inverse
 
 # Estrutura de Governança
 
+processor (or wholesaler, or retailer)
+
+
 Separação entre propriedade e gestão é atrativa por gerar _especialização_ das atividades
 
 Entretanto, a _especialização_ ainda traz problemas de **motivação** e **coordenação**
@@ -91,6 +94,8 @@ class: inverse
 # Mecanismos de Coordenação e Estrutura de Governança
 
 - Este artigo examina mecanismos de coordenação entre fornecedores de matéria prima e o processo produtivo e conecta com uma estrutura de governança - de **Cooperativas** e **IOF**, movidos por externalidades e incerteza
+
+Com duas estruturas de governança diferentes:
 
 --
 
@@ -174,19 +179,106 @@ Duas soluções
 --
 Na cadeia de tomada de decisões: as de cima (fazendeiros) obedecem as de baixo (processadores) ??
 
-**Problema**: como os tomadores de decisão de cima (fazendeiros) escolhe a melhor decisão quando o diretor das decisões de baixo (processadores) possuem informação imperfeita sobre os custos de cima?
+**Problema**: como os tomadores de decisão de cima (fazendeiros/IOF) escolhe a melhor decisão quando o diretor das decisões de baixo (cooperativa/precessador) possuem informação imperfeita sobre os custos de cima?
+
+Contrados entre fazendeiros e cooperativas são incompletos
 
 Uma parte pode ter mais informações disponíveis do que a outra, de acordo com sua posição no processo.
+
+Processador pode sentir falta de informação ao estimar os benefícios de processar
 
 --
 class: inverse
 
-# Modelo
+# Contratos de integração
 
-Modelo de jogos não cooperativos
+Contrados entre fazendeiros e cooperativas são incompletos
+
+Uma parte pode ter mais informações disponíveis do que a outra, de acordo com sua posição no processo.
+
+Processador pode sentir falta de informação ao estimar os benefícios de processar 
+
+--
+
+A cooperativa pode especificar uma quantia a ser entregue ou o preço ao fazendeiro, enquanto IOF pode ter um contrato com o fazendeiro para fixar a quantidade ou preço fornecido
+
+O fazendeiro (processador) na cooperativa (IOF) tem que decidir quanto produzir (processar) baseado em sua infotmação MC (MR) e adivinhar o MR (MC)
+
+---
+class: inverse
+
+# Informação e Coordenação
+
+A estrutura de informação especifica a incerteza, chamada MR (IOF) e MC (cooperativas)
+*Achei essa parte confusa
+
+Fazendeiro (processador) em uma coopertiva (IOF) deve decidir quanto produzir (processar) baseado em sua informação sobre MC (MR) e adivinhar as informações MR (MC)
+
+---
+
+# Quatro estágios da jogo
+
+- Primeiro: A escolha da estrutura de governança (cooperativa ou IOF)
+
+- Segundo: o mecanismo de coordenação (preço ou quantidade) são escolhidos
+
+- Terceiro: Fazendeiro (membro da cooperativa) adivinha o MR do processador, ou o IOF adivinha o MC do fazendeiro
+
+- Quarta: São revelados os verdadeuris MR e MC. Pagamento das diferenças entre cooperativa e IOF são devidas às suas diferentes **funções objetivo**
+
+--
+
+A cooperativa considera as duas cadeias de coordenção, as de baixo (onde estão) e as de cima.
+ -  Cooperativas se preocupam em como suas decisões afetaram os fazendeiros
+ -  Cooperativas internalizam as externalidades
+
+A IOF se preocupa apenas com seu lucro na parte de baixo.
+
+** Diferentes mecanismos de coordenação podem ser empregados nas duas estruturas de governança**
+
+---
+class: inverse
+
+# Equilíbrio
+
+
+the choice of governance structure is addressed, anticipating the equilibrium choice of coordination mechanism in the next stage of the game. The choice of coordination mechanism in a cooperative is entirely guided by the size of the total surplus.
+
+
+a market mechanism like the price can be efficiently used in addition to hierarchy within a single firm, i.e. even if property rights over assets are not assigned to difference actors. There are situations where either price or quantity must be used to minimize losses in net joint profits.
+
+It is obvious that the choice of coordination mechanism in an IOF is not always efficient because it is based only on the downstream payoff rather than total surplus. 
+
+An IOF chooses a coordination mechanism based on the downstream surplus it acquires. Therefore the
+choice is not necessarily optimal in terms of total surplus. Yet an efficient coordination mechanism can
+be chosen if both the downstream surplus and the total surplus generated with a certain mechanism are
+higher than those with the other mechanism. It can be shown that the quantity control is
+more attractive than the price control when S MR > S MC .
+
+We have shown earlier that the choice of coordination mechanism in a cooperative is efficient
+(proposition 1), whereas it is not always in an IOF. However, a loss of surplus is associated with both
+coordination mechanisms. This is inevitable due to the lack of information. The cooperative lacks
+information regarding MR, whereas the IOF lacks information regarding the MC. An IOF may therefore
+be an efficient governance structure when its estimate of MC is more accurate compared to a
+cooperative‟s estimate of MR, despite its choice of coordination mechanism being inefficient.
 
 
 
+---
+class: inverse
+
+# Conclusões
+
+The coordination mechanism choice in cooperative and IOF and the efficiency of the two governance structures is analyzed. 
+
+Due to the “owner as user” characteristic, a cooperative internalizes the vertical externalities between upstream producers and the downstream processor, maximizing their joint profits, and will adopt therefore the efficient coordination mechanism.
+
+This contrasts with IOFs, where the coordination mode linking the upstream and downstream units is not always efficient. 
+
+
+Each governance structure can be uniquely efficient, which depends on the importance of lacking information upstream or downstream
+
+The cooperative members may be more willing to provide higher quality, more frequent, and more truthful information to the cooperative than they would to an IOF (Cook, 1994), rendering better vertical information transmission in a cooperative than in an IOF.
 
 
 

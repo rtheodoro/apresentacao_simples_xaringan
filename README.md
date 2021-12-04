@@ -9,7 +9,7 @@ _Coordination and Governance: The case of Cooperatives versus IOFs, de Feng e He
 O arquivo da apresentação em si é o **apresentacao_feng_hendrikse_2011.html**.
 Ele irá abrir no seu navegador padrão.
 
-O mais interessante desta apresentação é o `timer.rmd`, que adiciona um `countdown`, no canto superior direito da tela para auxíliar a controlar o tempo total da sua apresentação.
+O mais interessante desta apresentação é o `timer.rmd`, localizado na pasta `outros_elementos` que adiciona um `countdown`, no canto superior direito da tela para auxíliar a controlar o tempo total da sua apresentação.
 A descrição de como ele funciona está no próprio arquivo.
 
 O `timer.rmd` eu peguei deste projeto: https://github.com/bttomio/bttomio.github.io/tree/master/slides/25thFMM, uma vez que não é um pacote nativo do `xaringan`.

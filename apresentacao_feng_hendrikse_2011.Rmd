@@ -13,7 +13,7 @@ output:
       countIncrementalSlides: false
       countdown: 31000
     includes: 
-      after_body: ["insert-logo.html", "timer.html"]
+      after_body: ["outros_elementos/adiciona-logo.html", "outros_elementos/timer.html"]
 ---
 
 
@@ -23,7 +23,7 @@ options(htmltools.dir.version = FALSE)
 # xaringan::inf_mr()
 # Essa função faz com que você veja as alterações na apresentação em tempo real
 # Só é preciso salvar o arquivo quando se adiciona um novo slide
-
+# Você também pode ir em Addins -> xarigan --> infinite moon reader
 
 ```
 
@@ -74,7 +74,7 @@ class: inverse
 - É necessário corrigir sem comprometer a individualidade e independência das partes (Emelianoff, 1948)
 
 ---
-class: inverse, middle
+class: inverse
 
 # Coordenação nas Cooperativas
 
@@ -86,7 +86,7 @@ A razão é que mais informações devem ser trocadas e mais atividades de vári
 
 
 ---
-class: inverse, middle
+class: inverse
 
 # Mecanismos de Coordenação e Estrutura de Governança
 
@@ -106,7 +106,7 @@ class: inverse, middle
  - Apenas relacionamento transacional com os fornecedores
 
 ---
-class: inverse, middle
+class: inverse
 
 # Mecanismos de Coordenação e Estrutura de Governança
 
@@ -120,7 +120,7 @@ Sobre o mercado da agricultura
 Produtores possuem mais informação sobre a produção, enquantro processores**** possuem mais informações sobre os preços do mercado
 
 ---
-class: inverse, middle
+class: inverse
 
 # Coordenação como jogo de multiplo equilíbrio (Milgrom & Roberts, 1992).
 

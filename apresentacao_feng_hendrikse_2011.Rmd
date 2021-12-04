@@ -32,7 +32,7 @@ class: center, middle
 # ''Perhaps the most important role of contracts is to coordinate the actions of independent decision makers.''
 
 
-### Bogetoft and Olesen 2002, p189
+### Bogetoft and Olesen, 2002, p189
 
 ---
 class: inverse
@@ -117,13 +117,78 @@ Sobre o mercado da agricultura
 - Incerteza
 - Assimetria de Informação
 
-Produtores possuem mais informação sobre a produção, enquantro processores**** possuem mais informações sobre os preços do mercado
+Produtores possuem mais informação sobre a produção, enquanto processadores possuem mais informações sobre os preços do mercado
 
 ---
 class: inverse
 
-# Coordenação como jogo de multiplo equilíbrio (Milgrom & Roberts, 1992).
 
--
+# Exemplo de coordenação
+
+### Coordenação é um jogo de multiplo equilíbrio (Milgrom & Roberts, 1992).
+
+Suponha que existam dois produtores e um processador.
+
+- Cada produtor, realiza uma colheita por dia e entrega ao processador. Hoje ou amanhã.
+
+- O processador pode lidar com apenas uma colheita por dia.
+
+Aí entra a **coordenação**.
+
+O processador deve coordenar qual produtor entrega hoje e qual entrega amanhã. Caso não aconteça, as colheitas serão realizadas no mesmo dia e uma delas não será processada. Havendo perda para um dos produtores e ócio para o produtor no dia seguinte.
+
+---
+class: inverse
+
+
+# Problemas de coordenação
+
+### Problema de sincronia
+
+- Quando não requer que as partes involvidas se comuniquem entre si
+
+--
+
+### Problema de integração
+
+- Quando é necessário um conhecimento específico para a firma gerar valor. É custoso integrar essa informação em todas as áreas da firma
+
+Este artigo trata do problema de integração. **Quem** e **como** se determina a quantia eficiente de produção?
+
+---
+class: inverse
+
+# Problema de integração - Weitzman (1974)
+
+Duas soluções
+
+- Centralização
+  
+
+- Descentralização
+
+--
+
+*Não entendi muito bem a explicação dele das vantagens e desvantagens dessa tomada de decisão
+
+--
+Na cadeia de tomada de decisões: as de cima (fazendeiros) obedecem as de baixo (processadores) ??
+
+**Problema**: como os tomadores de decisão de cima (fazendeiros) escolhe a melhor decisão quando o diretor das decisões de baixo (processadores) possuem informação imperfeita sobre os custos de cima?
+
+
+
+--
+class: inverse
+
+# Modelo
+
+Modelo de jogos não cooperativos
+
+
+
+
+
+
 
 

@@ -8,13 +8,16 @@ output: html_document_base
 # Eu só consegui instalar ele fazendo o download direto do github do criador
 # https://github.com/gadenbuie/countdown e instalando com devtools::instal_local()
 
-countdown::countdown(15, 0, top = "1.5%", style = "z-index:100", update_every = 1,
-                     font_size = "100%", warn_when = 300,
+countdown::countdown(15, 0, top = "1.5%", 
+                     style = "z-index:100", 
+                     update_every = 1,
+                     font_size = "100%", 
+                     warn_when = 300,
                      color_running_background = "#E5E5E5")
 
 
-# E entao delete tudo no HTML, exceto as tags do <style>, <script> e <div> que estao relacionadas ao `countdown`
-# (também delete as tags <hmtl>, <head> e <body>.)
+# E entao delete tudo no timer.html, exceto as tags do <style>, <script> e <div> que estao relacionadas ao `countdown`
+# (também delete as tags <hmtl>, <head> e <body>)
 #
 # Para aparecer nos slides, voce tem que ir no arquivo principal e adicionar:
 # 

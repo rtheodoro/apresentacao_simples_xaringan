@@ -287,172 +287,31 @@ document
     el.innerHTML += '<div class="logo"></div>';
   });
 </script>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <title>timer.utf8</title>
+  <title>timer.knit</title>
   <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
-  <style type="text/css">.countdown {background: inherit;position: absolute;cursor: pointer;font-size: 100%;line-height: 1;border-color: #ddd;border-width: 3px;border-style: solid;border-radius: 15px;box-shadow: 0px 4px 10px 0px rgba(50, 50, 50, 0.4);-webkit-box-shadow: 0px 4px 10px 0px rgba(50, 50, 50, 0.4);margin: 0.6em;padding: 10px 15px;text-align: center;}.countdown {display: flex;align-items: center;justify-content: center;}.countdown .countdown-time {background: none;font-size: 100%;padding: 0;}.countdown-digits {color: inherit;}.countdown.running {border-color: #CECECE;background-color: #E5E5E5;}.countdown.running .countdown-digits {color: #393939;}.countdown.finished {border-color: #D83A20;background-color: #F04124;}.countdown.finished .countdown-digits {color: #3C1009;}.countdown.running.warning {border-color: #CFAE24;background-color: #E6C229;}.countdown.running.warning .countdown-digits {color: #39300A;}@-webkit-keyframes blink {from {opacity: 1}50% {opacity: 0.1}to {opacity: 1}}@keyframes blink {from {opacity: 1}50% {opacity: 0.1}to {opacity: 1}}.countdown.running.blink-colon .countdown-digits.colon {-webkit-animation: blink 2s steps(1, end) 0s infinite;animation: blink 2s steps(1, end) 0s infinite;}</style>
-  <script>var counters = {timer: {}};
-var update_timer = function(timer, force = false) {
-	var secs = timer.value;
-
-	// check if we should update timer or not
-	noup = timer.div.className.match(/noupdate-\d+/);
-	if (!force && noup != null) {
-	  noup = parseInt(noup[0].match(/\d+$/));
-	  if (secs > noup * 2 && secs % noup > 0) { return; }
-	}
-
-	// should we apply or remove warning class?
-	warnwhen = timer.div.dataset.warnwhen;
-	if (warnwhen && warnwhen > 0) {
-	  if (secs <= warnwhen && !timer.div.classList.contains("warning")) {
-	    timer.div.classList.add("warning");
-	  } else if (secs > warnwhen && timer.div.classList.contains("warning")) {
-	    timer.div.classList.remove("warning");
-	  }
-	}
-
-  var mins = Math.floor(secs / 60); // 1 min = 60 secs
-  secs -= mins * 60;
-
-  // Update HTML
-  timer.min.innerHTML = String(mins).padStart(2, 0);
-  timer.sec.innerHTML = String(secs).padStart(2, 0);
-}
-var countdown = function (e) {
-  target = e.target;
-  if (target.classList.contains("countdown-digits")) {
-    target = target.parentElement;
-  }
-  if (target.tagName == "CODE") {
-    target = target.parentElement;
-  }
-
-  // Init counter
-  if (!counters.timer.hasOwnProperty(target.id)) {
-    counters.timer[target.id] = {};
-    // Set the containers
-	  counters.timer[target.id].min = target.getElementsByClassName("minutes")[0];
-  	counters.timer[target.id].sec = target.getElementsByClassName("seconds")[0];
-  	counters.timer[target.id].div = target;
-  }
-
-  if (!counters.timer[target.id].running) {
-    if (!counters.timer[target.id].end) {
-      counters.timer[target.id].end   = parseInt(counters.timer[target.id].min.innerHTML) * 60;
-		  counters.timer[target.id].end  += parseInt(counters.timer[target.id].sec.innerHTML);
-    }
-
-    counters.timer[target.id].value = counters.timer[target.id].end;
-    update_timer(counters.timer[target.id]);
-    if (counters.ticker) counters.timer[target.id].value += 1;
-
-    // Start if not past end date
-    if (counters.timer[target.id].value > 0) {
-      base_class = target.className.replace(/\s?(running|finished)/, "")
-      target.className = base_class + " running";
-      counters.timer[target.id].running = true;
-
-      if (!counters.ticker) {
-        counters.ticker = setInterval(counter_update_all, 1000);
-      }
-    }
-  } else {
-    // Bump timer value if running & clicked
-    counters.timer[target.id].value += counter_bump_increment(counters.timer[target.id].end);
-    update_timer(counters.timer[target.id], force = true);
-    counters.timer[target.id].value += 1;
-  }
-};
-
-var counter_bump_increment = function(val) {
-  if (val <= 30) {
-    return 5;
-  } else if (val <= 300) {
-    return 15;
-  } else if (val <= 3000) {
-    return 30;
-  } else {
-    return 60;
-  }
-}
-
-var counter_update_all = function() {
-  // Iterate over all running timers
-  for (var i in counters.timer) {
-    // Stop if passed end time
-    console.log(counters.timer[i].id)
-    counters.timer[i].value--;
-    if (counters.timer[i].value <= 0) {
-      counters.timer[i].min.innerHTML = "00";
-      counters.timer[i].sec.innerHTML = "00";
-      counters.timer[i].div.className = counters.timer[i].div.className.replace("running", "finished");
-      counters.timer[i].running = false;
-    } else {
-      // Update
-      update_timer(counters.timer[i]);
-
-      // Play countdown sound if data-audio=true on container div
-      let audio = counters.timer[i].div.dataset.audio
-      if (audio && counters.timer[i].value == 5) {
-        counter_play_sound(audio);
-      }
-    }
-  }
-
-  // If no more running timers, then clear ticker
-  var timerIsRunning = false;
-  for (var t in counters.timer) {
-    timerIsRunning = timerIsRunning || counters.timer[t].running
-  }
-  if (!timerIsRunning) {
-    clearInterval(counters.ticker);
-    counters.ticker = null;
-  }
-}
-
-var counter_play_sound = function(url) {
-  if (typeof url === 'boolean') {
-    url = 'libs/countdown/smb_stage_clear.mp3';
-  }
-  sound = new Audio(url);
-  sound.play();
-}
-
-var counter_addEventListener = function() {
-  if (!document.getElementsByClassName("countdown").length) {
-    setTimeout(counter_addEventListener, 2);
-    return;
-  }
-  var counter_divs = document.getElementsByClassName("countdown");
-  console.log(counter_divs);
-  for (var i = 0; i < counter_divs.length; i++) {
-    counter_divs[i].addEventListener("click", countdown, false);
-  }
-};
-
-counter_addEventListener();
-</script>
+  <script src="data:application/javascript;base64,Ly8gUGFuZG9jIDIuOSBhZGRzIGF0dHJpYnV0ZXMgb24gYm90aCBoZWFkZXIgYW5kIGRpdi4gV2UgcmVtb3ZlIHRoZSBmb3JtZXIgKHRvCi8vIGJlIGNvbXBhdGlibGUgd2l0aCB0aGUgYmVoYXZpb3Igb2YgUGFuZG9jIDwgMi44KS4KZG9jdW1lbnQuYWRkRXZlbnRMaXN0ZW5lcignRE9NQ29udGVudExvYWRlZCcsIGZ1bmN0aW9uKGUpIHsKICB2YXIgaHMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCJkaXYuc2VjdGlvbltjbGFzcyo9J2xldmVsJ10gPiA6Zmlyc3QtY2hpbGQiKTsKICB2YXIgaSwgaCwgYTsKICBmb3IgKGkgPSAwOyBpIDwgaHMubGVuZ3RoOyBpKyspIHsKICAgIGggPSBoc1tpXTsKICAgIGlmICghL15oWzEtNl0kL2kudGVzdChoLnRhZ05hbWUpKSBjb250aW51ZTsgIC8vIGl0IHNob3VsZCBiZSBhIGhlYWRlciBoMS1oNgogICAgYSA9IGguYXR0cmlidXRlczsKICAgIHdoaWxlIChhLmxlbmd0aCA+IDApIGgucmVtb3ZlQXR0cmlidXRlKGFbMF0ubmFtZSk7CiAgfQp9KTsK"></script>
+  <link href="data:text/css,%2Ecountdown%20%7B%0Abackground%3A%20inherit%3B%0Aposition%3A%20absolute%3B%0Acursor%3A%20pointer%3B%0Afont%2Dsize%3A%20100%25%3B%0Aline%2Dheight%3A%201%3B%0Aborder%2Dcolor%3A%20%23ddd%3B%0Aborder%2Dwidth%3A%203px%3B%0Aborder%2Dstyle%3A%20solid%3B%0Aborder%2Dradius%3A%2015px%3B%0Abox%2Dshadow%3A%200px%204px%2010px%200px%20rgba%2850%2C%2050%2C%2050%2C%200%2E4%29%3B%0A%2Dwebkit%2Dbox%2Dshadow%3A%200px%204px%2010px%200px%20rgba%2850%2C%2050%2C%2050%2C%200%2E4%29%3B%0Amargin%3A%200%2E6em%3B%0Apadding%3A%2010px%2015px%3B%0Atext%2Dalign%3A%20center%3B%0A%7D%0A%2Ecountdown%20%7B%0Adisplay%3A%20flex%3B%0Aalign%2Ditems%3A%20center%3B%0Ajustify%2Dcontent%3A%20center%3B%0A%7D%0A%2Ecountdown%20%2Ecountdown%2Dtime%20%7B%0Abackground%3A%20none%3B%0Afont%2Dsize%3A%20100%25%3B%0Apadding%3A%200%3B%0A%7D%0A%2Ecountdown%2Ddigits%20%7B%0Acolor%3A%20inherit%3B%0A%7D%0A%2Ecountdown%2Erunning%20%7B%0Aborder%2Dcolor%3A%20%23CECECE%3B%0Abackground%2Dcolor%3A%20%23E5E5E5%3B%0A%7D%0A%2Ecountdown%2Erunning%20%2Ecountdown%2Ddigits%20%7B%0Acolor%3A%20%23393939%3B%0A%7D%0A%2Ecountdown%2Efinished%20%7B%0Aborder%2Dcolor%3A%20%23D83A20%3B%0Abackground%2Dcolor%3A%20%23F04124%3B%0A%7D%0A%2Ecountdown%2Efinished%20%2Ecountdown%2Ddigits%20%7B%0Acolor%3A%20%233C1009%3B%0A%7D%0A%2Ecountdown%2Erunning%2Ewarning%20%7B%0Aborder%2Dcolor%3A%20%23CFAE24%3B%0Abackground%2Dcolor%3A%20%23E6C229%3B%0A%7D%0A%2Ecountdown%2Erunning%2Ewarning%20%2Ecountdown%2Ddigits%20%7B%0Acolor%3A%20%2339300A%3B%0A%7D%0A%40%2Dwebkit%2Dkeyframes%20blink%20%7B%0Afrom%20%7Bopacity%3A%201%7D%0A50%25%20%7Bopacity%3A%200%2E1%7D%0Ato%20%7Bopacity%3A%201%7D%0A%7D%0A%40keyframes%20blink%20%7B%0Afrom%20%7Bopacity%3A%201%7D%0A50%25%20%7Bopacity%3A%200%2E1%7D%0Ato%20%7Bopacity%3A%201%7D%0A%7D%0A%2Ecountdown%2Erunning%2Eblink%2Dcolon%20%2Ecountdown%2Ddigits%2Ecolon%20%7B%0A%2Dwebkit%2Danimation%3A%20blink%202s%20steps%281%2C%20end%29%200s%20infinite%3B%0Aanimation%3A%20blink%202s%20steps%281%2C%20end%29%200s%20infinite%3B%0A%7D%0A" rel="stylesheet" />
+  <script src="data:application/javascript;base64,dmFyIGNvdW50ZXJzID0ge3RpbWVyOiB7fX07CnZhciB1cGRhdGVfdGltZXIgPSBmdW5jdGlvbih0aW1lciwgZm9yY2UgPSBmYWxzZSkgewoJdmFyIHNlY3MgPSB0aW1lci52YWx1ZTsKCgkvLyBjaGVjayBpZiB3ZSBzaG91bGQgdXBkYXRlIHRpbWVyIG9yIG5vdAoJbm91cCA9IHRpbWVyLmRpdi5jbGFzc05hbWUubWF0Y2goL25vdXBkYXRlLVxkKy8pOwoJaWYgKCFmb3JjZSAmJiBub3VwICE9IG51bGwpIHsKCSAgbm91cCA9IHBhcnNlSW50KG5vdXBbMF0ubWF0Y2goL1xkKyQvKSk7CgkgIGlmIChzZWNzID4gbm91cCAqIDIgJiYgc2VjcyAlIG5vdXAgPiAwKSB7IHJldHVybjsgfQoJfQoKCS8vIHNob3VsZCB3ZSBhcHBseSBvciByZW1vdmUgd2FybmluZyBjbGFzcz8KCXdhcm53aGVuID0gdGltZXIuZGl2LmRhdGFzZXQud2FybndoZW47CglpZiAod2FybndoZW4gJiYgd2FybndoZW4gPiAwKSB7CgkgIGlmIChzZWNzIDw9IHdhcm53aGVuICYmICF0aW1lci5kaXYuY2xhc3NMaXN0LmNvbnRhaW5zKCJ3YXJuaW5nIikpIHsKCSAgICB0aW1lci5kaXYuY2xhc3NMaXN0LmFkZCgid2FybmluZyIpOwoJICB9IGVsc2UgaWYgKHNlY3MgPiB3YXJud2hlbiAmJiB0aW1lci5kaXYuY2xhc3NMaXN0LmNvbnRhaW5zKCJ3YXJuaW5nIikpIHsKCSAgICB0aW1lci5kaXYuY2xhc3NMaXN0LnJlbW92ZSgid2FybmluZyIpOwoJICB9Cgl9CgogIHZhciBtaW5zID0gTWF0aC5mbG9vcihzZWNzIC8gNjApOyAvLyAxIG1pbiA9IDYwIHNlY3MKICBzZWNzIC09IG1pbnMgKiA2MDsKCiAgLy8gVXBkYXRlIEhUTUwKICB0aW1lci5taW4uaW5uZXJIVE1MID0gU3RyaW5nKG1pbnMpLnBhZFN0YXJ0KDIsIDApOwogIHRpbWVyLnNlYy5pbm5lckhUTUwgPSBTdHJpbmcoc2VjcykucGFkU3RhcnQoMiwgMCk7Cn0KdmFyIGNvdW50ZG93biA9IGZ1bmN0aW9uIChlKSB7CiAgdGFyZ2V0ID0gZS50YXJnZXQ7CiAgaWYgKHRhcmdldC5jbGFzc0xpc3QuY29udGFpbnMoImNvdW50ZG93bi1kaWdpdHMiKSkgewogICAgdGFyZ2V0ID0gdGFyZ2V0LnBhcmVudEVsZW1lbnQ7CiAgfQogIGlmICh0YXJnZXQudGFnTmFtZSA9PSAiQ09ERSIpIHsKICAgIHRhcmdldCA9IHRhcmdldC5wYXJlbnRFbGVtZW50OwogIH0KCiAgLy8gSW5pdCBjb3VudGVyCiAgaWYgKCFjb3VudGVycy50aW1lci5oYXNPd25Qcm9wZXJ0eSh0YXJnZXQuaWQpKSB7CiAgICBjb3VudGVycy50aW1lclt0YXJnZXQuaWRdID0ge307CiAgICAvLyBTZXQgdGhlIGNvbnRhaW5lcnMKCSAgY291bnRlcnMudGltZXJbdGFyZ2V0LmlkXS5taW4gPSB0YXJnZXQuZ2V0RWxlbWVudHNCeUNsYXNzTmFtZSgibWludXRlcyIpWzBdOwogIAljb3VudGVycy50aW1lclt0YXJnZXQuaWRdLnNlYyA9IHRhcmdldC5nZXRFbGVtZW50c0J5Q2xhc3NOYW1lKCJzZWNvbmRzIilbMF07CiAgCWNvdW50ZXJzLnRpbWVyW3RhcmdldC5pZF0uZGl2ID0gdGFyZ2V0OwogIH0KCiAgaWYgKCFjb3VudGVycy50aW1lclt0YXJnZXQuaWRdLnJ1bm5pbmcpIHsKICAgIGlmICghY291bnRlcnMudGltZXJbdGFyZ2V0LmlkXS5lbmQpIHsKICAgICAgY291bnRlcnMudGltZXJbdGFyZ2V0LmlkXS5lbmQgICA9IHBhcnNlSW50KGNvdW50ZXJzLnRpbWVyW3RhcmdldC5pZF0ubWluLmlubmVySFRNTCkgKiA2MDsKCQkgIGNvdW50ZXJzLnRpbWVyW3RhcmdldC5pZF0uZW5kICArPSBwYXJzZUludChjb3VudGVycy50aW1lclt0YXJnZXQuaWRdLnNlYy5pbm5lckhUTUwpOwogICAgfQoKICAgIGNvdW50ZXJzLnRpbWVyW3RhcmdldC5pZF0udmFsdWUgPSBjb3VudGVycy50aW1lclt0YXJnZXQuaWRdLmVuZDsKICAgIHVwZGF0ZV90aW1lcihjb3VudGVycy50aW1lclt0YXJnZXQuaWRdKTsKICAgIGlmIChjb3VudGVycy50aWNrZXIpIGNvdW50ZXJzLnRpbWVyW3RhcmdldC5pZF0udmFsdWUgKz0gMTsKCiAgICAvLyBTdGFydCBpZiBub3QgcGFzdCBlbmQgZGF0ZQogICAgaWYgKGNvdW50ZXJzLnRpbWVyW3RhcmdldC5pZF0udmFsdWUgPiAwKSB7CiAgICAgIGJhc2VfY2xhc3MgPSB0YXJnZXQuY2xhc3NOYW1lLnJlcGxhY2UoL1xzPyhydW5uaW5nfGZpbmlzaGVkKS8sICIiKQogICAgICB0YXJnZXQuY2xhc3NOYW1lID0gYmFzZV9jbGFzcyArICIgcnVubmluZyI7CiAgICAgIGNvdW50ZXJzLnRpbWVyW3RhcmdldC5pZF0ucnVubmluZyA9IHRydWU7CgogICAgICBpZiAoIWNvdW50ZXJzLnRpY2tlcikgewogICAgICAgIGNvdW50ZXJzLnRpY2tlciA9IHNldEludGVydmFsKGNvdW50ZXJfdXBkYXRlX2FsbCwgMTAwMCk7CiAgICAgIH0KICAgIH0KICB9IGVsc2UgewogICAgLy8gQnVtcCB0aW1lciB2YWx1ZSBpZiBydW5uaW5nICYgY2xpY2tlZAogICAgY291bnRlcnMudGltZXJbdGFyZ2V0LmlkXS52YWx1ZSArPSBjb3VudGVyX2J1bXBfaW5jcmVtZW50KGNvdW50ZXJzLnRpbWVyW3RhcmdldC5pZF0uZW5kKTsKICAgIHVwZGF0ZV90aW1lcihjb3VudGVycy50aW1lclt0YXJnZXQuaWRdLCBmb3JjZSA9IHRydWUpOwogICAgY291bnRlcnMudGltZXJbdGFyZ2V0LmlkXS52YWx1ZSArPSAxOwogIH0KfTsKCnZhciBjb3VudGVyX2J1bXBfaW5jcmVtZW50ID0gZnVuY3Rpb24odmFsKSB7CiAgaWYgKHZhbCA8PSAzMCkgewogICAgcmV0dXJuIDU7CiAgfSBlbHNlIGlmICh2YWwgPD0gMzAwKSB7CiAgICByZXR1cm4gMTU7CiAgfSBlbHNlIGlmICh2YWwgPD0gMzAwMCkgewogICAgcmV0dXJuIDMwOwogIH0gZWxzZSB7CiAgICByZXR1cm4gNjA7CiAgfQp9Cgp2YXIgY291bnRlcl91cGRhdGVfYWxsID0gZnVuY3Rpb24oKSB7CiAgLy8gSXRlcmF0ZSBvdmVyIGFsbCBydW5uaW5nIHRpbWVycwogIGZvciAodmFyIGkgaW4gY291bnRlcnMudGltZXIpIHsKICAgIC8vIFN0b3AgaWYgcGFzc2VkIGVuZCB0aW1lCiAgICBjb25zb2xlLmxvZyhjb3VudGVycy50aW1lcltpXS5pZCkKICAgIGNvdW50ZXJzLnRpbWVyW2ldLnZhbHVlLS07CiAgICBpZiAoY291bnRlcnMudGltZXJbaV0udmFsdWUgPD0gMCkgewogICAgICBjb3VudGVycy50aW1lcltpXS5taW4uaW5uZXJIVE1MID0gIjAwIjsKICAgICAgY291bnRlcnMudGltZXJbaV0uc2VjLmlubmVySFRNTCA9ICIwMCI7CiAgICAgIGNvdW50ZXJzLnRpbWVyW2ldLmRpdi5jbGFzc05hbWUgPSBjb3VudGVycy50aW1lcltpXS5kaXYuY2xhc3NOYW1lLnJlcGxhY2UoInJ1bm5pbmciLCAiZmluaXNoZWQiKTsKICAgICAgY291bnRlcnMudGltZXJbaV0ucnVubmluZyA9IGZhbHNlOwogICAgfSBlbHNlIHsKICAgICAgLy8gVXBkYXRlCiAgICAgIHVwZGF0ZV90aW1lcihjb3VudGVycy50aW1lcltpXSk7CgogICAgICAvLyBQbGF5IGNvdW50ZG93biBzb3VuZCBpZiBkYXRhLWF1ZGlvPXRydWUgb24gY29udGFpbmVyIGRpdgogICAgICBsZXQgYXVkaW8gPSBjb3VudGVycy50aW1lcltpXS5kaXYuZGF0YXNldC5hdWRpbwogICAgICBpZiAoYXVkaW8gJiYgY291bnRlcnMudGltZXJbaV0udmFsdWUgPT0gNSkgewogICAgICAgIGNvdW50ZXJfcGxheV9zb3VuZChhdWRpbyk7CiAgICAgIH0KICAgIH0KICB9CgogIC8vIElmIG5vIG1vcmUgcnVubmluZyB0aW1lcnMsIHRoZW4gY2xlYXIgdGlja2VyCiAgdmFyIHRpbWVySXNSdW5uaW5nID0gZmFsc2U7CiAgZm9yICh2YXIgdCBpbiBjb3VudGVycy50aW1lcikgewogICAgdGltZXJJc1J1bm5pbmcgPSB0aW1lcklzUnVubmluZyB8fCBjb3VudGVycy50aW1lclt0XS5ydW5uaW5nCiAgfQogIGlmICghdGltZXJJc1J1bm5pbmcpIHsKICAgIGNsZWFySW50ZXJ2YWwoY291bnRlcnMudGlja2VyKTsKICAgIGNvdW50ZXJzLnRpY2tlciA9IG51bGw7CiAgfQp9Cgp2YXIgY291bnRlcl9wbGF5X3NvdW5kID0gZnVuY3Rpb24odXJsKSB7CiAgaWYgKHR5cGVvZiB1cmwgPT09ICdib29sZWFuJykgewogICAgdXJsID0gJ2xpYnMvY291bnRkb3duL3NtYl9zdGFnZV9jbGVhci5tcDMnOwogIH0KICBzb3VuZCA9IG5ldyBBdWRpbyh1cmwpOwogIHNvdW5kLnBsYXkoKTsKfQoKdmFyIGNvdW50ZXJfYWRkRXZlbnRMaXN0ZW5lciA9IGZ1bmN0aW9uKCkgewogIGlmICghZG9jdW1lbnQuZ2V0RWxlbWVudHNCeUNsYXNzTmFtZSgiY291bnRkb3duIikubGVuZ3RoKSB7CiAgICBzZXRUaW1lb3V0KGNvdW50ZXJfYWRkRXZlbnRMaXN0ZW5lciwgMik7CiAgICByZXR1cm47CiAgfQogIHZhciBjb3VudGVyX2RpdnMgPSBkb2N1bWVudC5nZXRFbGVtZW50c0J5Q2xhc3NOYW1lKCJjb3VudGRvd24iKTsKICBjb25zb2xlLmxvZyhjb3VudGVyX2RpdnMpOwogIGZvciAodmFyIGkgPSAwOyBpIDwgY291bnRlcl9kaXZzLmxlbmd0aDsgaSsrKSB7CiAgICBjb3VudGVyX2RpdnNbaV0uYWRkRXZlbnRMaXN0ZW5lcigiY2xpY2siLCBjb3VudGRvd24sIGZhbHNlKTsKICB9Cn07Cgpjb3VudGVyX2FkZEV2ZW50TGlzdGVuZXIoKTsK"></script>
 </head>
 <body>
-<div class="countdown blink-colon noupdate-5" id="timer_5fafc5fe" style="top:1.5%;right:0;font-size:100%;z-index:100" data-warnwhen="300">
-<code class="countdown-time"><span class="countdown-digits minutes">15</span
-><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+<div class="countdown" id="timer_61aab19f" style="top:1.5%;right:0;font-size:100%;z-index:100" data-warnwhen="300">
+<code class="countdown-time"><span class="countdown-digits minutes">15</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 </body>
 </html>
-
-
 
 <script>
 slideshow._releaseMath = function(el) {

@@ -9,6 +9,7 @@ _Coordination and Governance: The case of Cooperatives versus IOFs, de Feng e He
 O arquivo da apresentação em si é o **apresentacao_feng_hendrikse_2011.html**.
 Ele irá abrir no seu navegador padrão.
 
-O mais interessante dela é o TIMER (`countdown`), para auxíliar a controlar o tempo.
+O mais interessante dela é o `timer.rmd`, que adiciona um `countdown`, para auxíliar a controlar o tempo.
+A descrição de como ele funciona está no próprio arquivo.
 
 O timer eu peguei deste projeto: https://github.com/bttomio/bttomio.github.io/tree/master/slides/25thFMM, uma vez que não é um pacote nativo do `xaringan`.

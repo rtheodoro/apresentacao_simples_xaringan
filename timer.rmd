@@ -8,22 +8,22 @@ output: html_document_base
 # Eu só consegui instalar ele fazendo o download direto do github do criador
 # https://github.com/gadenbuie/countdown e instalando com devtools::instal_local()
 
-#      after_body: ["insert-logo.html", "timer.html"]
-
 countdown::countdown(15, 0, top = "1.5%", style = "z-index:100", update_every = 1,
                      font_size = "100%", warn_when = 300,
                      color_running_background = "#E5E5E5")
 
 
-
-# and then delete everything in the HTML file except for the <style>, <script>, and <div> tags related to countdown (also delete the <html>, <head> and <body> tags, too), ... you can include this in the slides doc in the after_body:
+# E entao delete tudo no HTML, exceto as tags do <style>, <script> e <div> que estao relacionadas ao `countdown`
+# (também delete as tags <hmtl>, <head> e <body>.)
+#
+# Para aparecer nos slides, voce tem que ir no arquivo principal e adicionar:
 # 
 # output:
 #   xaringan::moon_reader:
 #     includes:
 #       after_body: timer.html
 # 
-# and you'll end up with a timer that sticks to the bottom right corner throughout your slides.
+# Desta forma ele vai estar no canto superior direito da tela
 # 
 # Note that if you use timers inside your presentation, then you only need to keep the <div class="countdown"> html and it should be picked up by the scripts/styles defined in your slides.
 
